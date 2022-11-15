@@ -1,0 +1,43 @@
+[project]
+name            = "pdm-rename"
+description     = "Plugin, that allows to dynamically rename folders during the build stage."
+authors         = [{ name = "aleksul", email = "me@aleksul.space" }]
+dependencies    = ["pdm>=2.2.1,<3.0"]
+requires-python = ">=3.7"
+readme          = "README.md"
+license         = { text = "MIT" }
+version         = "0.0.1"
+
+[project.entry-points.pdm]
+rename = "plugin:rename_plugin"
+
+[tool.pdm.dev-dependencies]
+format     = ["black", "isort"]
+lint       = ["mypy", "ruff"]
+pre-commit = ["pre-commit"]
+
+[tool.coverage]
+report.fail_under = 70
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile           = "black"
+multi_line_output = 3
+
+[tool.mypy]
+disallow_untyped_defs   = true
+disallow_any_unimported = true
+no_implicit_optional    = true
+check_untyped_defs      = true
+warn_return_any         = true
+warn_unused_ignores     = true
+show_error_codes        = true
+
+[tool.ruff]
+line-length = 100
+
+[build-system]
+requires      = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"

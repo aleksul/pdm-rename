@@ -1,0 +1,22 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/__pycache__": true,
+        ".mypy_cache": true,
+        ".ruff_cache": true,
+        ".venv": true,
+    },
+    "python.languageServer": "Pylance",
+    // Linting
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.mypyEnabled": false,
+    "mypy.runUsingActiveInterpreter": true,
+    // Formatting
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+    },
+}
