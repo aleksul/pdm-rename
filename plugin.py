@@ -91,7 +91,7 @@ def on_pre_build(project: Project, *_args: Tuple, **_kwargs: Dict) -> None:
         rename_to_path.mkdir(parents=True)
         initial_path.rename(rename_to_path)
         # delete folder from the project root
-        shutil.rmtree(get_subroot_project_folder(project.root, initial_path))
+        shutil.rmtree(get_subroot_project_folder(project.root, initial_path), ignore_errors=True)
 
 
 def on_post_build(project: Project, *_args: Tuple, **_kwargs: Dict) -> None:
@@ -108,7 +108,7 @@ def on_post_build(project: Project, *_args: Tuple, **_kwargs: Dict) -> None:
         initial_path.mkdir(parents=True)
         rename_to_path.rename(initial_path)
         # delete folder from the project root
-        shutil.rmtree(get_subroot_project_folder(project.root, rename_to_path))
+        shutil.rmtree(get_subroot_project_folder(project.root, rename_to_path), ignore_errors=True)
 
 
 def rename_plugin(_: Core) -> None:
