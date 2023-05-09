@@ -38,7 +38,6 @@ def parse_rename(
     result: Dict[Path, Path] = {}
 
     for initial_name, rename_to in rename_config.items():
-
         initial_path = project.root.joinpath(Path(initial_name))
         rename_to_path = project.root.joinpath(Path(rename_to))
 
