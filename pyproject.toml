@@ -2,11 +2,11 @@
 name            = "pdm-rename"
 description     = "Plugin, that allows to dynamically rename folders during the build stage."
 authors         = [{ name = "aleksul", email = "me@aleksul.space" }]
-dependencies    = ["pdm>=2.2.1,<3.0"]
+dependencies    = ["pdm>=2.3.0,<3.0"]
 requires-python = ">=3.7"
 readme          = "README.md"
 license         = { text = "MIT" }
-version         = "0.0.2"
+version         = "0.0.3"
 
 [project.entry-points.pdm]
 rename = "plugin:rename_plugin"

@@ -9,15 +9,10 @@ from pdm.signals import post_build, pre_build
 
 def parse_config(project: Project) -> Optional[Dict[str, str]]:
     pyproject = project.pyproject
-    if (
-        pyproject is None
-        or "tool" not in pyproject
-        or "pdm" not in pyproject["tool"]
-        or "rename" not in pyproject["tool"]["pdm"]
-    ):
+    if "rename" not in pyproject.settings:
         return None
 
-    rename_config: Dict[str, str] = pyproject["tool"]["pdm"]["rename"]
+    rename_config: Dict[str, str] = pyproject.settings["rename"].value
 
     if (
         not isinstance(rename_config, Dict)
@@ -38,7 +33,6 @@ def parse_rename(
     result: Dict[Path, Path] = {}
 
     for initial_name, rename_to in rename_config.items():
-
         initial_path = project.root.joinpath(Path(initial_name))
         rename_to_path = project.root.joinpath(Path(rename_to))
 
